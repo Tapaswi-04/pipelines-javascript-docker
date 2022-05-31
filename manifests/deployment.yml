@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "myapp-ddb2"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "myapp-ddb2"
+  template:
+    metadata:
+      labels:
+        app: "myapp-ddb2"
+    spec:
+      containers:
+        - name: "myapp-ddb2"
+          image: "myappreg.azurecr.io/myapp"
+          ports:
+          - containerPort: 8080
