@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "myapp-be16"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "myapp-be16"
+  template:
+    metadata:
+      labels:
+        app: "myapp-be16"
+    spec:
+      containers:
+        - name: "myapp-be16"
+          image: "myappreg.azurecr.io/myapp"
+          ports:
+          - containerPort: 8080
